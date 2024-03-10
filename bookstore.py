@@ -23,7 +23,10 @@ class Customer:
     
     
     def remove_book_from_cart(self, book):
-        self.shoppingCart.remove(book)
+        for i, v in enumerate(self.shoppingCart):
+            # self.shoppingCart.remove(book)
+            if book == v:
+                self.shoppingCart = self.shoppingCart[:i] + self.shoppingCart[i+1:]             
         
     def place_order(self):
         placedOrder = Order(self, self.shoppingCart)
